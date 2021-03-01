@@ -17,7 +17,7 @@ def battery_is_ok(temperature, soc, charge_rate):
   flag_range=[True, True, True]
   for i in range(0,3):
     flag_range[i]=check_ranges(param[i],high[i],lo[i])
-   return (Alert_OOR(flag_range)))
+  return (Alert_OOR(flag_range)))
    
 
 if __name__ == '__main__':
