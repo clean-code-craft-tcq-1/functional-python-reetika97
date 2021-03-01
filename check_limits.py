@@ -1,17 +1,24 @@
 
+Battery_range= [[0,45], [20,80], [-1,0.8]]
+flag_range=[True, True, True]
+def check_ranges(param,high,lo):
+  if param>high or param<lo
+    return False
+  else 
+    return True
+def Alert_OOR(flags):
+  if False in flags:
+    return False
+  else 
+    return True
+
 def battery_is_ok(temperature, soc, charge_rate):
-  if temperature < 0 or temperature > 45:
-    print('Temperature is out of range!')
-    return False
-  elif soc < 20 or soc > 80:
-    print('State of Charge is out of range!')
-    return False
-  elif charge_rate > 0.8:
-    print('Charge rate is out of range!')
-    return False
-
-  return True
-
+  param=[temperature, soc, charge_rate]
+  flag_range=[True, True, True]
+  for i in range(0,3):
+    flag_range[i]=check_ranges(param[i],high[i],lo[i])
+   return (Alert_OOR(flag_range)))
+   
 
 if __name__ == '__main__':
   assert(battery_is_ok(25, 70, 0.7) is True)
