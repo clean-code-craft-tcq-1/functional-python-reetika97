@@ -23,9 +23,9 @@ def Breached_param(flags):
   breach_report=['temperature':'Normal', 'soc':'Normal', 'charge_rate':'Normal']
   for i in range(0,3):
     if flags[i]=='H':
-      breach_report[param[i]]:'High')
+      breach_report[param[i]]:'High'
     elif flags[i]=='L':
-      breach_report[param[i]]:'Low')
+      breach_report[param[i]]:'Low'
       
   print(breach_report)
 
