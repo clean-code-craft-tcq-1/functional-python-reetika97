@@ -11,7 +11,7 @@ def check_ranges(param,high,lo):
   elif param<lo:
     return 'Low'
   else: 
-    return True
+    return 'Normal'
 
 #Alert for deviations
 def Alert_OOR(flags):
@@ -25,10 +25,7 @@ def Breached_param(flags):
   param=['temperature', 'soc', 'charge_rate']
   breach_report={'temperature':'Normal', 'soc':'Normal', 'charge_rate':'Normal'}
   for i in range(0,3):
-    if flags[i]==True:
-      breach_report[param[i]]='Normal'
-    else:
-      breach_report[param[i]]=flags[i]
+         breach_report[param[i]]=flags[i]
       
   print(breach_report)
   return breach_report
