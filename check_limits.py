@@ -5,7 +5,7 @@ Battery_range= [[0,45], [20,80], [-sys.maxsize,0.8]]
 flag_range=[True, True, True]
 
 #Check For parameters within Range
-def check_ranges(param,high,lo):
+def check_ranges(param,lo,high):
   if param>high:
     return 'High'
   elif param<lo:
@@ -34,7 +34,7 @@ def battery_is_ok(temperature, soc, charge_rate):
   param=[temperature, soc, charge_rate]
   flag_range=[True, True, True]
   for i in range(0,3):
-    flag_range[i]=check_ranges(param[i],Battery_range[i][1],Battery_range[i][0])
+    flag_range[i]=check_ranges(param[i],Battery_range[i][0],Battery_range[i][1])
   breach_report=Breached_param(flag_range)
   return (Alert_OOR(flag_range))
 
