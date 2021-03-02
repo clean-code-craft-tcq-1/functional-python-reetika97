@@ -24,7 +24,7 @@ def Breached_param(flags):
   for i in range(0,3):
     if flags[i]=='H':
       breach_report[param[i]]='High'
-    else flags[i]:
+    else:
       breach_report[param[i]]='Low'
       
   print(breach_report)
