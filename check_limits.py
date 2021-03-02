@@ -1,6 +1,6 @@
 
-  
-Battery_range= [[0,45], [20,80], [-1,0.8]]
+import sys  
+Battery_range= [[0,45], [20,80], [-sys.maxsize,0.8]]
 
 flag_range=[True, True, True]
 
