@@ -32,16 +32,14 @@ def Breached_param(flags):
 
 def battery_is_ok(temperature, soc, charge_rate):
   param=[temperature, soc, charge_rate]
-  breach_report={'temperature':'Normal', 'soc':'Normal', 'charge_rate':'Normal'}
   flag_range=[True, True, True]
   for i in range(0,3):
     flag_range[i]=check_ranges(param[i],Battery_range[i][1],Battery_range[i][0])
-  if Alert_OOR(flag_range)==False:
-    breach_report=Breached_param(flag_range)
+  breach_report=Breached_param(flag_range)
   return (Alert_OOR(flag_range))
 
 if __name__ == '__main__':
   assert(battery_is_ok(25, 70, 0.7) is True)
   assert(battery_is_ok(50, 85, 0) is False)
   assert((Breached_param(['Normal','High','Low'])=={'temperature':'Normal', 'soc':'High', 'charge_rate':'Low'}) is True)
-  assert((Breached_param(True,True,True)=={'temperature':'Normal', 'soc':'Normal', 'charge_rate':'Normal'}) is True)
+  assert((Breached_param(['Normal','Normal','Normal'])=={'temperature':'Normal', 'soc':'Normal', 'charge_rate':'Normal'}) is True)
