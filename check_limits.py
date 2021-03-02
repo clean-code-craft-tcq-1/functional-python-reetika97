@@ -7,15 +7,15 @@ flag_range=[True, True, True]
 #Check For parameters within Range
 def check_ranges(param,high,lo):
   if param>high:
-    return 'H'
+    return 'High'
   elif param<lo:
-    return 'L'
+    return 'Low'
   else: 
     return True
 
 #Alert for deviations
 def Alert_OOR(flags):
-  if 'H' in flags or 'L' in flags:
+  if 'High' in flags or 'Low' in flags:
     return False
   else: 
     return True
@@ -25,10 +25,10 @@ def Breached_param(flags):
   param=['temperature', 'soc', 'charge_rate']
   breach_report={'temperature':'Normal', 'soc':'Normal', 'charge_rate':'Normal'}
   for i in range(0,3):
-    if flags[i]=='H':
-      breach_report[param[i]]='High'
-    elif flags[i]=='L':
-      breach_report[param[i]]='Low'
+    if flags[i]==True:
+      breach_report[param[i]]='Normal'
+    else:
+      breach_report[param[i]]=flags[i]
       
   print(breach_report)
   return breach_report
