@@ -1,4 +1,5 @@
 
+
 import sys  
 Battery_range= [[0,45], [20,80], [-sys.maxsize,0.8]]
 
