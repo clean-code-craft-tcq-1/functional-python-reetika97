@@ -1,17 +1,19 @@
 
-
 import sys  
 Battery_range= [[0,45], [20,80], [-sys.maxsize,0.8]]
 
 flag_range=[True, True, True]
 
 def check_ranges(param,high,lo):
-  if param>high or param<lo:
-    return False
+  if param>high:
+    return 'H'
+  elif param<lo:
+    return 'L'
   else: 
     return True
+  
 def Alert_OOR(flags):
-  if False in flags:
+  if 'H' in flags or 'L' in flags:
     return False
   else: 
     return True
