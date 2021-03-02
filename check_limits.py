@@ -20,14 +20,13 @@ def Alert_OOR(flags):
   
 def Breached_param(flags):
   param=['temperature', 'soc', 'charge_rate']
-  breach_report=[]
+  breach_report=['temperature':'Normal', 'soc':'Normal', 'charge_rate':'Normal']
   for i in range(0,3):
     if flags[i]=='H':
-      breach_report.append({param[i]:'High'})
+      breach_report[param[i]]:'High')
     elif flags[i]=='L':
-      breach_report.append({param[i]:'Low'})
-    else: 
-      breach_report.append({param[i]:'Normal'})
+      breach_report[param[i]]:'Low')
+      
   print(breach_report)
 
 def battery_is_ok(temperature, soc, charge_rate):
