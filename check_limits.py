@@ -20,7 +20,7 @@ def Alert_OOR(flags):
   
 def Breached_param(flags):
   param=['temperature', 'soc', 'charge_rate']
-  breach_report={'temperature':'Normal'}, {'soc':'Normal'}, {'charge_rate':'Normal'}
+  breach_report={'temperature':'Normal', 'soc':'Normal', 'charge_rate':'Normal'}
   for i in range(0,3):
     if flags[i]=='H':
       breach_report[param[i]]='High'
